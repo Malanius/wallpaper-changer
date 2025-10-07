@@ -6,7 +6,7 @@ SYSTEMD_DIR=~/.config/systemd/user/
 .PHONY: all install uninstall
 
 all:
-	@echo "Available targets: install, clean"
+	@echo "Available targets: install, uninstall"
 
 install:
 	@echo "Copying service and timer files to $(SYSTEMD_DIR)"
