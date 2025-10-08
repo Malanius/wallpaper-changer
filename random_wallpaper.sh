@@ -7,6 +7,6 @@ echo "Selecting random wallpaper from $WALLPAPER_DIR"
 image_path="$(fd . -e jpg -e png -e jpeg -e webp "$WALLPAPER_DIR" | shuf -n 1)"
 echo "Selected wallpaper: $image_path"
 
-pkill -x swaybg
-uwsm-app -- swaybg -i "$image_path" -m fill 2>&1 &
+echo "Setting new wallpaper..."
+hyprctl hyprpaper reload ,"$image_path"
 echo "Wallpaper set to $image_path"
