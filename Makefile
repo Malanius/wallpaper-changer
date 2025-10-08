@@ -1,6 +1,7 @@
 SERVICE_NAME=wallpaper_changer
 SERVICE_FILE=$(SERVICE_NAME).service
 TIMER_FILE=$(SERVICE_NAME).timer
+SCRIPT_FILE=random_wallpaper.sh
 SYSTEMD_DIR=~/.config/systemd/user/
 
 .PHONY: all install uninstall
@@ -13,6 +14,7 @@ install:
 	mkdir -p $(SYSTEMD_DIR)
 	cp $(SERVICE_FILE) $(SYSTEMD_DIR)
 	cp $(TIMER_FILE) $(SYSTEMD_DIR)
+	cp $(SCRIPT_FILE) $(SYSTEMD_DIR)
 	@echo "Reloading systemd configuration"
 	systemctl --user daemon-reload
 	@echo "Enabling and starting $(TIMER_FILE)"
@@ -26,5 +28,6 @@ uninstall:
 	@echo "Removing service and timer files from $(SYSTEMD_DIR)"
 	rm -f $(SYSTEMD_DIR)/$(SERVICE_FILE)
 	rm -f $(SYSTEMD_DIR)/$(TIMER_FILE)
+	rm -f $(SYSTEMD_DIR)/$(SCRIPT_FILE)
 	@echo "Reloading systemd configuration"
 	systemctl --user daemon-reload
