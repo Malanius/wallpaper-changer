@@ -3,7 +3,7 @@ Description=random wallpaper job
 
 [Service]
 Type=oneshot
-ExecStart=/home/malanius/projects/wallpaper-changer/random_wallpaper.sh
+ExecStart=%h/.config/systemd/user/random_wallpaper.sh
 
 [Install]
 WantedBy=multi-user.target
